@@ -6,6 +6,8 @@ import { initialState, reducer, addToReminders} from './redux'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
+
+
 console.log(reducer)
 const store = createStore(reducer)
 const storeContent = store.getState()

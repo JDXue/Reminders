@@ -11,6 +11,12 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 myReminders: [...state.myReminders, action.payload || '']
             }
+
+        case 'REMOVE_FROM_REMINDERS':
+            return{
+                ...state,
+                myReminders: ([...state.myReminders.slice(0, action.payload), ...state.myReminders.slice(action.payload+1)])
+            }
         default: return state
     }
 }
@@ -22,10 +28,10 @@ export const addToReminders = (reminder) => {
     }
 }
 
-export const removeFromReminders = (reminder) => {
+export const removeFromReminders = (reminderIndex) => {
     return {
         type: 'REMOVE_FROM_REMINDERS',
-        payload: reminder
+        payload: reminderIndex
     }
 }
 
