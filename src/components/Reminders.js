@@ -1,10 +1,14 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToReminders, removeFromReminders } from '../redux'
-import ShowAReminder from './ShowAReminder'
 import './Reminders.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../App.css'
 import Button from 'react-bootstrap/Button'
+import DayPickerInput from "react-day-picker/DayPickerInput";
+import "react-day-picker/lib/style.css";
+
+
 
 
 function Reminders(){
@@ -50,6 +54,10 @@ function Reminders(){
                     }}
                     value={newReminder}
                 />
+
+                <h2>Pick a Date</h2>
+                <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" />
+
                 <Button
                     variant='dark'
                     onClick={() => {
@@ -60,6 +68,7 @@ function Reminders(){
                 >
                 +
                 </Button>
+
             </div>
 
 
