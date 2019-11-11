@@ -2,6 +2,10 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToReminders } from '../redux'
 import ShowAReminder from './ShowAReminder'
+import './Reminders.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button'
+
 
 function Reminders(){
     const remindersState  = useSelector(store => store.myReminders)
@@ -9,34 +13,45 @@ function Reminders(){
     const dispatch = useDispatch()
 
     return (
-        <div>
-            <h1 className='container'>Reminders</h1>
+        <div className='container'>
+            <h1 className='title'>Reminders</h1>
             <br></br>
-            <input
-                placeholder='add a reminder here'
-                onChange={(e) => {
-                    setNewReminder(e.target.value)
-                }}
-            />
-            <button
-                onClick={() => {
-                    console.log(newReminder)
-                    dispatch(addToReminders(newReminder))
-                }}
-            >
-            +
-            </button>
 
-
-            <ul>
+            <div className='reminders-container'>
                 {
                     remindersState.map((reminder, index) =>
-                        <li key={index + reminder}>
-                            {reminder}
-                        </li>
+                        <div
+                            key={index + reminder}
+                        >
+                            <p className='reminder'>{reminder}</p>
+                        </div>
                     )
                 }
-            </ul>
+            </div>
+
+            <div className='reminder-input-container'>
+                <input
+                    className='reminder-input'
+                    id='reminderInput'
+                    type='text'
+                    placeholder='add a reminder here'
+                    onChange={(e) => {
+                        setNewReminder(e.target.value)
+                    }}
+                />
+                <Button
+                    variant='dark'
+                    onClick={() => {
+                        console.log(newReminder)
+                        dispatch(addToReminders(newReminder))
+                        document.getElementById('reminderInput').value = ''
+                    }}
+                >
+                +
+                </Button>
+            </div>
+
+
 
         </div>
     )

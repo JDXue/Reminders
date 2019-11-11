@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow|Big+Shoulders+Text|Lobster|Source+Code+Pro&display=swap');
+
+*{
+  font-family: 'Barlow', sans-serif;
+}
+
 .App {
   text-align: center;
 }

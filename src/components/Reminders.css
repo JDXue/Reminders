@@ -1,0 +1,28 @@
+.title{
+    padding: 50px;
+}
+
+.reminder-input{
+    border-radius: 10px;
+    border: dashed #dedede ;
+    padding: 10px;
+}
+
+.reminder-input-container{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px 10px;
+    padding: 50px;
+}
+
+.reminders-container{
+    padding: 30px 30px 50px 50px ;
+
+}
+
+.reminder{
+    background-color: #dedede;
+    max-width: 500px;
+    border-radius: 10px;
+    padding: 10px;
+}
