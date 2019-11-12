@@ -8,8 +8,9 @@ import { addToReminders, removeFromReminders } from '../redux'
 import './Reminders.css'
 
 
+
 function AddReminderInput(){
-    const remindersState  = useSelector(store => store.myReminders)
+    const remindersState  = useSelector(storeState => storeState.myReminders)
     const [newReminder, setNewReminder] = React.useState('')
     const [reminderDate, setReminderDate]= React.useState('')
     const dispatch = useDispatch()
@@ -52,6 +53,7 @@ function AddReminderInput(){
                 >
                 +
                 </Button>
+
 
         </div>
     )
