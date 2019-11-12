@@ -13,12 +13,13 @@ import './Reminders.css'
 function CurrentReminders(){
     const remindersState  = useSelector(store => store.myReminders)
     const dispatch = useDispatch()
+    console.log(remindersState)
     return(
         <div className='reminders-container'>
             {
                 remindersState.map((reminder, index) =>
                     <div className="reminder-box" key={index + reminder}>
-                        <p className='reminder'>{reminder}</p>
+                        <p className='reminder'>{reminder[1].toLocaleDateString()} {reminder[0]} </p>
                         <Button
                             id={index}
                             className='delete-button'

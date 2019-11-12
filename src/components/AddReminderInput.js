@@ -11,6 +11,7 @@ import './Reminders.css'
 function AddReminderInput(){
     const remindersState  = useSelector(store => store.myReminders)
     const [newReminder, setNewReminder] = React.useState('')
+    const [reminderDate, setReminderDate]= React.useState('')
     const dispatch = useDispatch()
 
     return(
@@ -19,21 +20,33 @@ function AddReminderInput(){
                     className='reminder-input'
                     id='reminderInput'
                     type='text'
-                    placeholder='add a reminder here'
+                    placeholder='add a reminder here...'
                     onChange={(e) => {
                         setNewReminder(e.target.value)
                     }}
                     value={newReminder}
                 />
 
-                <h2>Pick a Date</h2>
-                <DayPickerInput placeholder="DD/MM/YYYY" format="DD/MM/YYYY" />
+                <div className='date-picker container'>
+
+                    <h4 className='date-title'>Pick a Date</h4>
+                    <DayPickerInput
+                        placeholder="DD/MM/YYYY"
+                        format="DD/MM/YYYY"
+                        selectedDays = {reminderDate}
+                        onDayChange={(day) => {
+                            setReminderDate(day)
+                            console.log(reminderDate)
+                        }}
+
+                    />
+                </div>
 
                 <Button
                     variant='dark'
                     onClick={() => {
-                        console.log(newReminder)
-                        dispatch(addToReminders(newReminder))
+                        console.log(newReminder,reminderDate)
+                        dispatch(addToReminders(newReminder, reminderDate))
                         setNewReminder('')
                     }}
                 >

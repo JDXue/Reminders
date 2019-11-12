@@ -9,7 +9,7 @@ export const reducer = (state = initialState, action) => {
         case 'ADD_TO_REMINDERS':
             return{
                 ...state,
-                myReminders: [...state.myReminders, action.payload || '']
+                myReminders: [...state.myReminders, action.payload || [''] ]
             }
 
         case 'REMOVE_FROM_REMINDERS':
@@ -21,10 +21,10 @@ export const reducer = (state = initialState, action) => {
     }
 }
 
-export const addToReminders = (reminder) => {
+export const addToReminders = (reminder, reminderDate) => {
     return {
         type: 'ADD_TO_REMINDERS',
-        payload: reminder
+        payload: [reminder, reminderDate]
     }
 }
 
