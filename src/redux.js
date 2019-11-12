@@ -18,12 +18,18 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 myReminders: ([...state.myReminders.slice(0, action.payload), ...state.myReminders.slice(action.payload+1)])
             }
+
         case 'ONLY_SHOW_REMINDERS_TODAY':
-            console.log({action})
+            // console.log({action})
             return{
                 ...state,
                 onlyShowRemindersToday: action.payload
             }
+
+        case 'VALIDATE_LOGIN':
+            console.log(action)
+
+
         default: return state
     }
 }
@@ -43,9 +49,17 @@ export const removeFromReminders = (reminderIndex) => {
 }
 
 export const showingRemindersToday = (option) => {
-    console.log(option)
+    // console.log(option)
     return {
         type: 'ONLY_SHOW_REMINDERS_TODAY',
         payload: option
+    }
+}
+
+export const validateLogin = (userLogin) => {
+    console.log(userLogin)
+    return {
+        type: 'VALIDATE_LOGIN',
+        payload: userLogin
     }
 }

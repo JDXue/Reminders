@@ -1,11 +1,11 @@
 import React from 'react'
 import './Reminders.css'
-import '../App.css'
+import '../../App.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeFromReminders } from '../redux'
+import { removeFromReminders } from '../../redux'
 
 function RemindersToday(){
     const remindersState  = useSelector(storeState => storeState.myReminders)

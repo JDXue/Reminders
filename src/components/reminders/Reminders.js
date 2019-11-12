@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './Reminders.css'
-import '../App.css'
+import '../../App.css'
 
 import CurrentReminders from './CurrentReminders'
 import AddReminderInput from './AddReminderInput'

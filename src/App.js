@@ -1,27 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Reminders from './components/Reminders'
-import { initialState, reducer, addToReminders} from './redux'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+import Nav from './Nav'
+import SignIn from './components/auth/SignIn'
+import SignUp from './components/auth/SignUp'
+import Reminders from './components/reminders/Reminders'
 
 
 
-console.log(reducer)
-const store = createStore(reducer)
-const storeContent = store.getState()
-console.log(storeContent)
-console.log(store.getState().myReminders)
+
+
 
 function App() {
   return (
     <>
-      <Provider store={store}>
-        <Reminders/>
-      </Provider>
+      <BrowserRouter>
+        <Nav/>
+        <div>
+          <Switch>
+            <Route exact path='/'>
+              <Reminders/>
+            </Route>
+
+            <Route path='/signin'>
+              <SignIn/>
+            </Route>
+
+            <Route path='/signup'>
+              <SignUp/>
+            </Route>
+          </Switch>
+
+
+        </div>
+
+
+      </BrowserRouter>
     </>
   );
 }
 
 export default App;
+
+
+

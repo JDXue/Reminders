@@ -3,7 +3,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux'
-import { showingRemindersToday } from '../redux'
+import { showingRemindersToday } from '../../redux'
 
 
 function ToggleReminders(){

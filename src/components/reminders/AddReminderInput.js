@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
 import { useDispatch, useSelector } from 'react-redux'
-import { addToReminders, removeFromReminders } from '../redux'
+import { addToReminders, removeFromReminders } from '../../redux'
 import './Reminders.css'
 
 
