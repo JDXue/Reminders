@@ -12,14 +12,14 @@ function AllReminders(){
     const remindersState  = useSelector(storeState => storeState.myReminders)
     const dispatch = useDispatch()
 
-    console.log(remindersState)
+    console.log(remindersState.filter(reminder => reminder[1] != null))
 
 
     return(
         <>
             {
                 remindersState
-                    .filter(reminder => reminder.length > 1)
+                    .filter(reminder => reminder[1] != null)
                     .map((reminder, index) =>
                         <div className="reminder-box" key={index + reminder}>
                             <p className='reminder'>
@@ -41,28 +41,35 @@ function AllReminders(){
             }
             <br></br>
 
-
-            <h2>Other Reminders</h2>
-
             {
-                remindersState
-                .filter(reminder => reminder.length = 1)
-                .map((reminder, index) =>
-                    <div className="reminder-box" key={index + reminder}>
-                        <p className='reminder'>{reminder[0]} </p>
-                        <Button
-                            id={index}
-                            className='delete-button'
-                            variant='light'
-                            onClick= {()=>{
-                                console.log(index)
-                                console.log('removed a reminder')
-                                dispatch(removeFromReminders(index))
-                            }}
-                        >X</Button>
-                    </div>
-                )
+                (remindersState.filter(reminder => reminder[1] == null).length > 0)
+                ?
+                <>
+                    <h2>Other Reminders</h2>
+
+                    {
+                        remindersState
+                        .filter(reminder => reminder[1] == null)
+                        .map((reminder, index) =>
+                            <div className="reminder-box" key={index + reminder}>
+                                <p className='reminder'>{reminder[0]} </p>
+                                <Button
+                                    id={index}
+                                    className='delete-button'
+                                    variant='light'
+                                    onClick= {()=>{
+                                        console.log(index)
+                                        console.log('removed a reminder')
+                                        dispatch(removeFromReminders(index))
+                                    }}
+                                >X</Button>
+                            </div>
+                        )
+                    }
+                </>
+                : <></>
             }
+
         </>
     )
 }

@@ -25,6 +25,7 @@ function RemindersToday(){
             <h5>{titleStr}</h5>
                 {
                     remindersState
+                        .filter(reminder => reminder[1] != null)
                         .filter(reminder => reminder[1].toLocaleDateString('en-GB') == todayStr) //check if reminders are for today
                         .map((reminder, index) =>
                             <div className="reminder-box" key={index + reminder}>
