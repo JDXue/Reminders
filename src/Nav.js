@@ -28,6 +28,7 @@ function Nav(){
                 <div className='account'>
                     <p className='nav-link'>{currentUserState}</p>
                     <Logout className=''/>
+
                 </div>
 
             }

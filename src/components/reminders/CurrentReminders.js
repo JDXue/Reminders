@@ -11,7 +11,6 @@ import './Reminders.css'
 
 import RemindersToday from './RemindersToday'
 import AllReminders from './AllReminders'
-import ToggleReminders from './ToggleReminders'
 
 
 function CurrentReminders(){
@@ -30,7 +29,7 @@ function CurrentReminders(){
                 }
             </div>
 
-            <ToggleReminders/>
+
 
         </div>
     )

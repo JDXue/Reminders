@@ -4,7 +4,6 @@ import './Reminders.css'
 import '../../App.css'
 
 import CurrentReminders from './CurrentReminders'
-import AddReminderInput from './AddReminderInput'
 
 import { useHistory } from 'react-router-dom'
 
@@ -25,6 +24,17 @@ function Reminders(){
                     history.push('/addreminder')
                 }}
             >Add Reminders</Button>
+            <br></br>
+
+            <div align='right'>
+                <Button
+                    variant='light'
+                    onClick={() => {
+                        history.push('/settings')
+                    }}
+                >Settings</Button>
+
+            </div>
 
 
         </div>

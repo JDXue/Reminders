@@ -11,6 +11,7 @@ import Reminders from './components/reminders/Reminders'
 import Main from './Main'
 
 import AddReminderInput from './components/reminders/AddReminderInput'
+import Settings from './Settings'
 
 
 
@@ -40,6 +41,10 @@ function App() {
 
             <Route path='/addreminder'>
               <AddReminderInput/>
+            </Route>
+
+            <Route path='/settings'>
+              <Settings/>
             </Route>
           </Switch>
 
