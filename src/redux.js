@@ -9,7 +9,7 @@ export const newUserTemplate = {
 }
 
 export const initialState = {
-    currentUser: 0,
+    currentUser: 'noUser',
 
     users: {
         //this is the default if there is not a signed in user
@@ -27,30 +27,58 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch(action.type){
-        // case 'ADD_TO_REMINDERS':
-        //     return{
-        //         ...state,
-        //         myReminders: [...state.myReminders, action.payload || [''] ]
-        //     }
+        case 'ADD_TO_REMINDERS':
+            return{
+                ...state,
+                users: {...state.users,
+                    [action.payload[2]]: {
+                        ...state.users[action.payload[2]],
+                        myReminders: [...state.users[action.payload[2]].myReminders, action.payload || [''] ]
+                    }
+                }
+            }
 
-        // case 'REMOVE_FROM_REMINDERS':
-        //     return{
-        //         ...state,
-        //         myReminders: ([...state.myReminders.slice(0, action.payload), ...state.myReminders.slice(action.payload+1)])
-        //     }
+        case 'REMOVE_FROM_REMINDERS':
+            return{
+                ...state,
+                users: {...state.users,
+                    [action.payload[1]]: {
+                        ...state.users[action.payload[1]],
+                        myReminders: [
+                            ...state.users[action.payload[1]].myReminders.slice(0,action.payload[0]),
+                            ...state.users[action.payload[1]].myReminders.slice(action.payload[0]+1)
+                        ]
+                    }
+                }
+                // ...state,
+                // users: {...state.users,
+                //     myReminders: ([...state.myReminders.slice(0, action.payload), ...state.myReminders.slice(action.payload+1)])
+                // }
+            }
 
-        // case 'ONLY_SHOW_REMINDERS_TODAY':
-        //     // console.log({action})
-        //     return{
-        //         ...state,
-        //         onlyShowRemindersToday: action.payload
-        //     }
+        case 'ONLY_SHOW_REMINDERS_TODAY':
+            // console.log({action})
+            return{
+                ...state,
+                users: {...state.users,
+                    [action.payload[1]]: {
+                        ...state.users[action.payload[1]],
+                        settings: {...initialState.users[action.payload[1]].settings,
+                            onlyShowRemindersToday: action.payload[0]
+                        }
+                    }
+                }
+            }
 
-        // case 'VALIDATE_LOGIN':
-        //     console.log(action)
-        //     if()
+        case 'LOGIN_USER':
+            console.log(state)
+            return{
+                ...state,
+                currentUser: action.payload.email
+            }
 
         case 'CREATE_NEW_USER':
+            console.log(state)
             let newUserState = {
                 ...state,
                 users: {...state.users} //creates new  object for a new template user
@@ -67,40 +95,39 @@ export const reducer = (state = initialState, action) => {
             }
             console.log(newUserState)
 
-
-
             return newUserState
 
         default: return state
     }
 }
 
-export const addToReminders = (reminder, reminderDate) => {
+export const addToReminders = (reminder, reminderDate, userId) => {
     return {
         type: 'ADD_TO_REMINDERS',
-        payload: [reminder, reminderDate]
+        payload: [reminder, reminderDate, userId]
     }
 }
 
-export const removeFromReminders = (reminderIndex) => {
+export const removeFromReminders = (reminderIndex, userId) => {
+    console.log([reminderIndex, userId])
     return {
         type: 'REMOVE_FROM_REMINDERS',
-        payload: reminderIndex
+        payload: [reminderIndex, userId]
     }
 }
 
-export const showingRemindersToday = (option) => {
+export const showingRemindersToday = (option, userId) => {
     // console.log(option)
     return {
         type: 'ONLY_SHOW_REMINDERS_TODAY',
-        payload: option
+        payload: [option, userId]
     }
 }
 
-export const validateLogin = (userLogin) => {
+export const loginUser = (userLogin) => {
     console.log(userLogin)
     return {
-        type: 'VALIDATE_LOGIN',
+        type: 'LOGIN_USER',
         payload: userLogin
     }
 }

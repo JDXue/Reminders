@@ -1,6 +1,6 @@
 .nav{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 4fr;
     padding: 50px ;
 }
 
@@ -8,3 +8,6 @@
     padding: 20px;
 }
 
+.account{
+    text-align: right;
+}

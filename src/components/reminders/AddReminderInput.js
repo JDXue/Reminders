@@ -10,7 +10,10 @@ import './Reminders.css'
 
 
 function AddReminderInput(){
-    const remindersState  = useSelector(storeState => storeState.myReminders)
+    const currentUserState = useSelector(storeState => storeState.currentUser)
+    console.log(currentUserState)
+    const remindersState  = useSelector(storeState => storeState.users[`${currentUserState}`].myReminders)
+    console.log(remindersState)
     const [newReminder, setNewReminder] = React.useState('')
     const [reminderDate, setReminderDate]= React.useState('')
     const dispatch = useDispatch()
@@ -47,7 +50,7 @@ function AddReminderInput(){
                     variant='dark'
                     onClick={() => {
                         console.log(newReminder,reminderDate)
-                        dispatch(addToReminders(newReminder, reminderDate))
+                        dispatch(addToReminders(newReminder, reminderDate, currentUserState))
                         setNewReminder('')
                     }}
                 >

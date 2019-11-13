@@ -22,7 +22,7 @@ function App() {
         <div>
           <Switch>
             <Route exact path='/'>
-              {/* <Reminders/> */}
+              <Reminders/>
             </Route>
 
             <Route path='/signin'>

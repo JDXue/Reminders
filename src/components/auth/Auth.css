@@ -17,3 +17,13 @@
     border: solid 3px #efefef;
 }
 
+.login-attempt-message{
+    padding: 20px;
+    text-align: center;
+}
+
+.password-tip{
+    font-size: 13px;
+    color: #9f9f9f
+}
+

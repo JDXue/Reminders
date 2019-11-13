@@ -15,7 +15,8 @@ import ToggleReminders from './ToggleReminders'
 
 
 function CurrentReminders(){
-    const justRemindersToday = useSelector(storeState => storeState.onlyShowRemindersToday)
+    const currentUserState = useSelector(storeState => storeState.currentUser)
+    const justRemindersToday = useSelector(storeState => storeState.users[`${currentUserState}`].settings.onlyShowRemindersToday)
 
     return(
         <div>

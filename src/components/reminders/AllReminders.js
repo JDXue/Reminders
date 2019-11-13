@@ -9,16 +9,25 @@ import { addToReminders, removeFromReminders } from '../../redux'
 
 
 function AllReminders(){
-    const remindersState  = useSelector(storeState => storeState.myReminders)
+    const currentUserState = useSelector(storeState => storeState.currentUser)
+    console.log(currentUserState)
+    const remindersState  = useSelector(storeState => storeState.users[`${currentUserState}`]['myReminders'])
     const dispatch = useDispatch()
 
     return(
         <>
             {
+                (remindersState.length < 1)&&
+                <div>No reminders so far</div>
+
+            }
+
+
+            {
                 <>
                     {
                     remindersState
-                        .filter(reminder => reminder[1] != null)
+                        .filter(reminder => reminder[1])
                         .map((reminder, index) =>
                             <div className="reminder-box" key={index + reminder}>
                                 <p className='reminder'>
@@ -31,7 +40,7 @@ function AllReminders(){
                                     onClick= {()=>{
                                         console.log(index)
                                         console.log('removed a reminder')
-                                        dispatch(removeFromReminders(index))
+                                        dispatch(removeFromReminders(index, currentUserState))
                                     }}
                                 >X</Button>
                             </div>
@@ -43,14 +52,14 @@ function AllReminders(){
             <br></br>
 
             {
-                (remindersState.filter(reminder => reminder[1] == null).length > 0)
+                (remindersState.filter(reminder => !reminder[1]).length > 0)
                 ?
                 <>
                     <h2>Other Reminders</h2>
 
                     {
                         remindersState
-                        .filter(reminder => reminder[1] == null)
+                        .filter(reminder => !reminder[1])
                         .map((reminder, index) =>
                             <div className="reminder-box" key={index + reminder}>
                                 <p className='reminder'>{reminder[0]} </p>
@@ -61,7 +70,7 @@ function AllReminders(){
                                     onClick= {()=>{
                                         console.log(index)
                                         console.log('removed a reminder')
-                                        dispatch(removeFromReminders(index))
+                                        dispatch(removeFromReminders(index, currentUserState))
                                     }}
                                 >X</Button>
                             </div>
