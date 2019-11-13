@@ -59,7 +59,7 @@ function SignIn(){
             }
             >
 
-                <h3>Sign Up</h3>
+                <h3>Sign In</h3>
                 <div className="input-field">
                     <label htmlFor='email' className='container'>Enter Your Email Here</label>
                     <input id='email' type='email' value={userLogin.email} placeholder='example@exampledomain.co.uk' className='input-box'
@@ -80,7 +80,6 @@ function SignIn(){
                                 )
                             }}
                     ></input>
-                    <p className='password-tip'>Make sure your password is secure</p>
                 </div>
 
                 <div className='input-field'>

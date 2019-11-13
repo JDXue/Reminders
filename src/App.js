@@ -8,6 +8,7 @@ import Nav from './Nav'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import Reminders from './components/reminders/Reminders'
+import Main from './Main'
 
 
 
@@ -22,6 +23,10 @@ function App() {
         <div>
           <Switch>
             <Route exact path='/'>
+              <Main/>
+            </Route>
+
+            <Route path='/dashboard'>
               <Reminders/>
             </Route>
 

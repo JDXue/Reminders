@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './Nav.css'
 import { useSelector } from 'react-redux'
+import Logout from './Logout'
 
 
 function Nav(){
@@ -12,12 +13,17 @@ function Nav(){
     },[currentUserState])
     return(
         <div className='nav container'>
-            <Link className='nav-link' to='/'>Dashboard</Link>
+            <Link className='nav-link' to='/'>Remind Me</Link>
+            <Link className='nav-link' to='/dashboard'>Dashboard</Link>
             <Link className='nav-link' to='/signin'>Sign In</Link>
             <Link className='nav-link' to='/signup'>Sign Up</Link>
             {
                 (currentUserState != 'noUser') &&
-                    <p className='account'>{currentUserState}</p>
+                <div className='account'>
+                    <p>{currentUserState}</p>
+                    <Logout/>
+                </div>
+
             }
 
         </div>

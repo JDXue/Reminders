@@ -70,7 +70,7 @@ export const reducer = (state = initialState, action) => {
                 }
             }
 
-        case 'LOGIN_USER':
+        case 'CHANGE_USER':
             console.log(state)
             return{
                 ...state,
@@ -96,6 +96,13 @@ export const reducer = (state = initialState, action) => {
             console.log(newUserState)
 
             return newUserState
+
+        case 'CHANGE_USER':
+            console.log(state)
+            return{
+                ...state,
+                currentUser: 'noUser'
+            }
 
         default: return state
     }
@@ -132,10 +139,17 @@ export const loginUser = (userLogin) => {
     }
 }
 
+
 export const createNewUser = (userSignUp) => {
     console.log(userSignUp)
     return {
         type: 'CREATE_NEW_USER',
         payload: userSignUp
+    }
+}
+
+export const logoutUser = () => {
+    return {
+        type: 'LOGOUT_USER'
     }
 }

@@ -24,7 +24,7 @@ function RemindersToday(){
             <>
             <h5>{titleStr}</h5>
                 {
-                    (remindersState.length < 1)&&
+                    (remindersState.filter(reminder => reminder[1].toLocaleDateString('en-GB') == todayStr).length < 1)&&
                     <div>No reminders so far</div>
 
                 }
