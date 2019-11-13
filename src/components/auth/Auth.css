@@ -4,7 +4,8 @@
     width: 300px;
     height: auto;
     grid-gap: 30px;
-    border: solid 5px #efefef;
+    border: solid 3px #efefef;
+    border-radius: 10px;
     padding: 20px;
 
 }
@@ -12,5 +13,7 @@
 .input-box{
     min-width: 250px;
     padding: 10px;
+    border-radius: 10px;
+    border: solid 3px #efefef;
 }
 

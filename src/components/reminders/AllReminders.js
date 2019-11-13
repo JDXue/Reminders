@@ -12,9 +12,6 @@ function AllReminders(){
     const remindersState  = useSelector(storeState => storeState.myReminders)
     const dispatch = useDispatch()
 
-    console.log(remindersState.filter(reminder => reminder[1] != null))
-
-
     return(
         <>
             {
