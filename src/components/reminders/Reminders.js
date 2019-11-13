@@ -6,9 +6,13 @@ import '../../App.css'
 import CurrentReminders from './CurrentReminders'
 import AddReminderInput from './AddReminderInput'
 
+import { useHistory } from 'react-router-dom'
+
+import Button from 'react-bootstrap/Button'
+
 
 function Reminders(){
-
+    const history = useHistory()
 
     return (
         <div className='container'>
@@ -16,7 +20,12 @@ function Reminders(){
             <br></br>
 
             <CurrentReminders/>
-            <AddReminderInput/>
+            <Button
+                onClick={() => {
+                    history.push('/addreminder')
+                }}
+            >Add Reminders</Button>
+
 
         </div>
     )

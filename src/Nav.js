@@ -12,16 +12,22 @@ function Nav(){
         console.log('user changed')
     },[currentUserState])
     return(
-        <div className='nav container'>
-            <Link className='nav-link' to='/'>Remind Me</Link>
-            <Link className='nav-link' to='/dashboard'>Dashboard</Link>
-            <Link className='nav-link' to='/signin'>Sign In</Link>
-            <Link className='nav-link' to='/signup'>Sign Up</Link>
+        <div className='nav'>
+            <div className='main-nav container'>
+                <Link className='nav-link' to='/dashboard'>Dashboard</Link>
+                <Link className='nav-link' to='/signin'>Sign In</Link>
+                <Link className='nav-link' to='/signup'>Sign Up</Link>
+                <Link className='nav-link' to='/'>REMIND ME</Link>
+            </div>
+
+            <div>
+            </div>
+
             {
                 (currentUserState != 'noUser') &&
                 <div className='account'>
-                    <p>{currentUserState}</p>
-                    <Logout/>
+                    <p className='nav-link'>{currentUserState}</p>
+                    <Logout className=''/>
                 </div>
 
             }

@@ -10,7 +10,7 @@ import SignUp from './components/auth/SignUp'
 import Reminders from './components/reminders/Reminders'
 import Main from './Main'
 
-
+import AddReminderInput from './components/reminders/AddReminderInput'
 
 
 
@@ -37,7 +37,12 @@ function App() {
             <Route path='/signup'>
               <SignUp/>
             </Route>
+
+            <Route path='/addreminder'>
+              <AddReminderInput/>
+            </Route>
           </Switch>
+
 
 
         </div>

@@ -15,8 +15,6 @@
     grid-template-rows: 1fr 2fr 1fr 1fr;
     grid-gap: 10px 10px;
     padding: 50px;
-    border-radius: 5px;
-    border: solid #efefef 5px;
 }
 
 .reminders-container{
@@ -48,5 +46,9 @@
     margin:auto;
     text-align: center;
 
+}
+
+.back-button-box{
+    padding: 50px;
 }
 
