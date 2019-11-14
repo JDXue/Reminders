@@ -43,9 +43,8 @@ function AddReminderInput(){
                         value={newReminder}
                     />
 
-                    <div className='date-picker container'>
-
-                        <h4 className='date-title'>Pick a Date</h4>
+                    <h4 className='date-picker'>Pick a Date</h4>
+                    <div className='date-picker-calendar'>
                         <DayPickerInput
                             placeholder="DD/MM/YYYY"
                             format="DD/MM/YYYY"

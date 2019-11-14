@@ -10,7 +10,7 @@ import { addToReminders, removeFromReminders } from '../../redux'
 
 function AllReminders(){
     const currentUserState = useSelector(storeState => storeState.currentUser)
-    console.log(currentUserState)
+    // console.log(currentUserState)
     const remindersState  = useSelector(storeState => storeState.users[`${currentUserState}`]['myReminders'])
     const dispatch = useDispatch()
 

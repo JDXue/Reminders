@@ -1,32 +1,94 @@
 @import url('https://fonts.googleapis.com/css?family=Barlow|Big+Shoulders+Text|Lobster|Source+Code+Pro&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
 
 
 *{
   font-family: 'Barlow', sans-serif;
 }
 
+html{
+  height:100%;
+}
+
 .App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
+  flex-flow: row nowrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: baseline;
+  align-content:space-between;
+  width: 100%;
+  min-width: 400px;
+  /* min-height: 1000px; */
+
+
+
+  min-height: 1000px;
+
 }
 
-.App-link {
-  color: #09d3ac;
+.main-app{
+  position: absolute;
+  top: 200px;
+}
+
+
+@keyframes hop {
+  0% {opacity: 0.0;
+    transform:translateY(-30PX);}
+    100% {opacity:1.0;
+      transition-timing-function: ease-in;
+      transform:translateY(0PX);}
+    }
+
+.animate-hop{
+  animation-name:hop;
+  animation-duration: 0.7s;
+}
+
+.box{
+  padding: 100px;
+}
+
+
+.light{
+  background: white;
+  color: #282c34;
+  padding: 10px;
+  font-family: 'Dosis', 'sans-serif';
+
+  /* background-image: url(https://media.giphy.com/media/4jQa2aDKam83S/source.gif);
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+.dark{
+  background:  #282c34;
+  color: white;
+  padding: 10px;
+  font-family: 'Dosis', 'sans-serif';
+  display: flex;
+
+}
+
+/* .time-box{
+  border: 5px solid;
+  border-color: #09d3ac;
+  border-radius: 50px;
+  display: grid;
+  grid-template-rows: 200px 100px;
+  min-width: 500px;
+  padding: 20px;
+  height:fit-content;
+} */
+
+
+.dashboard{
+  padding: 20px;
+
+  animation-name: hop;
+  animation-duration: 0.7s;
 }
 
 

@@ -19,13 +19,16 @@ function RemindersToday(){
     let todayStr = newDate.toLocaleDateString('en-GB') // get string for comparison
     let titleStr = newDate.toLocaleDateString('en-GB',{dateStyle: 'medium'}) // get string for comparison
 
-    console.log(todayStr)
+    // console.log(todayStr)
         return(
             <>
             <h5>{titleStr}</h5>
                 {
-                    (remindersState.filter(reminder => reminder[1].toLocaleDateString('en-GB') == todayStr).length < 1)&&
+                    (remindersState.filter(reminder => reminder[1].toLocaleDateString('en-GB') == todayStr).length < 1)
+                    ?
                     <div>No reminders so far</div>
+                    :
+                    <></>
 
                 }
                 {

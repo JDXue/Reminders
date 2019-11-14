@@ -1,12 +1,12 @@
 //everything is exported into the main app from this file
 
-export const newUserTemplate = {
-    id:0,
-    email:'',
-    password: '',
-    myReminders:[],
-    settings: {onlyShowRemindersToday: false}
-}
+// export const newUserTemplate = {
+//     id:0,
+//     email:'',
+//     password: '',
+//     myReminders:[],
+//     settings: {onlyShowRemindersToday: false,}
+// }
 
 export const initialState = {
     currentUser: 'noUser',
@@ -18,7 +18,12 @@ export const initialState = {
                 email:'',
                 password: '',
                 myReminders:[],
-                settings: {onlyShowRemindersToday: false}
+                settings: {onlyShowRemindersToday: false,
+                        isDark:false,
+                        coords: {lat:51.50853 ,lon:-0.12574},
+                        city:'London',
+                        inInImperial:false
+                    }
 
             }
     }
@@ -104,10 +109,55 @@ export const reducer = (state = initialState, action) => {
                 currentUser: 'noUser'
             }
 
+        case 'SET_SETTINGS':
+            // console.log({action})
+            return{
+                ...state,
+                users: {...state.users,
+                    [action.payload[1]]: {
+                        ...state.users[action.payload[1]],
+                        settings: {...initialState.users[action.payload[1]].settings,
+                            [action.payload[2]]: action.payload[0]
+                        }
+                    }
+                }
+            }
+
+            // return{
+            //     ...state,
+            //     users: {...state.users,
+            //         [action.payload[1]]: {
+            //             ...state.users[action.payload[1]],
+            //             settings: {...initialState.users[action.payload[1]].settings,
+            //                 onlyShowRemindersToday: action.payload[0]
+            //             }
+            //         }
+            //     }
+            // }
+
+
+        case 'SET_GEOLOCATION':
+                // console.log({action})
+                return{
+                    ...state,
+                    users: {...state.users,
+                        [action.payload[1]]: {
+                            ...state.users[action.payload[1]],
+                            settings: {...initialState.users[action.payload[1]].settings,
+                                city: '',
+                                coords: {lat: action.payload[0].lat, lon: action.payload[0].lon}
+                                }
+                            }
+                        }
+                    }
+
+
         default: return state
     }
 }
 
+
+//action creators
 export const addToReminders = (reminder, reminderDate, userId) => {
     return {
         type: 'ADD_TO_REMINDERS',
@@ -151,5 +201,21 @@ export const createNewUser = (userSignUp) => {
 export const logoutUser = () => {
     return {
         type: 'LOGOUT_USER'
+    }
+}
+
+export const setSettings = (option, userId, settingType) => {
+    // console.log(option)
+    return {
+        type: 'SET_SETTINGS',
+        payload: [option, userId, settingType]
+    }
+}
+
+export const setGeoLocation = (option, userId) => {
+    // console.log(option)
+    return {
+        type: 'SET_WEATHER_SETTINGS',
+        payload: [option, userId]
     }
 }
