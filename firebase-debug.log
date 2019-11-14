@@ -1,0 +1,25 @@
+[debug] [2019-11-14T13:28:57.498Z] ----------------------------------------------------------------------
+[debug] [2019-11-14T13:28:57.500Z] Command:       /usr/local/bin/firebase /Users/jess.dam/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2019-11-14T13:28:57.500Z] CLI Version:   7.7.0
+[debug] [2019-11-14T13:28:57.500Z] Platform:      darwin
+[debug] [2019-11-14T13:28:57.500Z] Node Version:  v10.15.3
+[debug] [2019-11-14T13:28:57.501Z] Time:          Thu Nov 14 2019 13:28:57 GMT+0000 (Greenwich Mean Time)
+[debug] [2019-11-14T13:28:57.501Z] ----------------------------------------------------------------------
+[debug] [2019-11-14T13:28:57.501Z] 
+[debug] [2019-11-14T13:28:57.505Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-14T13:28:57.505Z] > authorizing via signed-in user
+[debug] [2019-11-14T13:28:57.505Z] [iam] checking project remind-me-47fa5 for permissions ["firebase.projects.get"]
+[debug] [2019-11-14T13:28:57.506Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/remind-me-47fa5:testIamPermissions  
+
+[debug] [2019-11-14T13:28:58.523Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-14T13:28:58.525Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/remind-me-47fa5  
+ 
+[debug] [2019-11-14T13:28:58.773Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/jess.dam/Dev/Sandbox/redux/reminders'...
+[info] 
+[debug] [2019-11-14T13:28:58.775Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/remind-me-47fa5/webApps/-/config  
+ 
+[debug] [2019-11-14T13:28:59.330Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: (build)
+[info] ✔  hosting: Local server: http://localhost:5000

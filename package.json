@@ -7,6 +7,7 @@
     "@fullcalendar/daygrid": "^4.3.0",
     "@fullcalendar/react": "^4.3.0",
     "bootstrap": "^4.3.1",
+    "firebase": "^7.3.0",
     "gulp": "^4.0.2",
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",
@@ -17,6 +18,7 @@
     "react-scripts": "3.2.0",
     "react-use": "^13.6.3",
     "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.88.1"
   },
   "scripts": {

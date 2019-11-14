@@ -6,14 +6,32 @@
         transform:translateY(0PX);}
       }
 
+@keyframes run {
+  0% {
+    transform:translateX(850PX);}
+    100% {
+      transition-timing-function: step-start;
+      transform:translateX(-850PX);}
+    }
+
 .main-box{
     animation-name: hop;
     animation-duration: 1.2s;
     text-align: center;
-    padding-top: 100px;
-    padding: 200px;
+    padding-top: 80px;
+    padding: 110px;
 }
 
 .main-box-content{
     padding: 30px;
+}
+
+.main-title{
+  font-size: 70px;
+}
+
+.running-tiger{
+    animation: run;
+    animation-iteration-count: infinite;
+    animation-duration: 9s;
 }
