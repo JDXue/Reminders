@@ -1,0 +1,10 @@
+.nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 50px ;
+}
+
+.nav-link{
+    padding: 20px;
+}
+
