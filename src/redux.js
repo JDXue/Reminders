@@ -1,7 +1,8 @@
 //everything is exported into the main app from this file
 
 export const initialState = {
-    myReminders:[]
+    myReminders:[],
+    onlyShowRemindersToday: false
 }
 
 export const reducer = (state = initialState, action) => {
@@ -9,7 +10,7 @@ export const reducer = (state = initialState, action) => {
         case 'ADD_TO_REMINDERS':
             return{
                 ...state,
-                myReminders: [...state.myReminders, action.payload || '']
+                myReminders: [...state.myReminders, action.payload || [''] ]
             }
 
         case 'REMOVE_FROM_REMINDERS':
@@ -17,14 +18,20 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 myReminders: ([...state.myReminders.slice(0, action.payload), ...state.myReminders.slice(action.payload+1)])
             }
+        case 'ONLY_SHOW_REMINDERS_TODAY':
+            console.log({action})
+            return{
+                ...state,
+                onlyShowRemindersToday: action.payload
+            }
         default: return state
     }
 }
 
-export const addToReminders = (reminder) => {
+export const addToReminders = (reminder, reminderDate) => {
     return {
         type: 'ADD_TO_REMINDERS',
-        payload: reminder
+        payload: [reminder, reminderDate]
     }
 }
 
@@ -35,3 +42,10 @@ export const removeFromReminders = (reminderIndex) => {
     }
 }
 
+export const showingRemindersToday = (option) => {
+    console.log(option)
+    return {
+        type: 'ONLY_SHOW_REMINDERS_TODAY',
+        payload: option
+    }
+}
