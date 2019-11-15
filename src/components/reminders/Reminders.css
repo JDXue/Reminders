@@ -1,4 +1,10 @@
-
+@keyframes hop {
+    0% {opacity: 0.0;
+      transform:translateY(-30PX);}
+      100% {opacity:1.0;
+        transition-timing-function: ease-in;
+        transform:translateY(0PX);}
+      }
 
 .title{
     padding: 50px;
@@ -15,12 +21,13 @@
     grid-template-rows: 1fr 2fr 1fr 1fr;
     grid-gap: 10px 10px;
     padding: 50px;
-    border-radius: 5px;
-    border: solid #efefef 5px;
+
 }
 
 .reminders-container{
     padding: 30px 30px 50px 50px ;
+    animation-name: hop;
+    animation-duration: 3s;
 
 }
 
@@ -49,4 +56,56 @@
     text-align: center;
 
 }
+
+.date-picker-calendar{
+    color: #200033
+}
+
+.back-button-box{
+    padding: 50px;
+}
+
+.main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: baseline;
+    align-content:space-between;
+    width: 100%;
+    min-width: 400px;
+    height: auto;
+    animation-name: hop;
+    animation-duration: 3s;
+}
+
+
+.timedate-box{
+    order: 1;
+    flex-shrink: 2;
+    min-width: 500px;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+}
+
+.weather-box{
+    order: 2;
+    display: grid;
+}
+
+.settings{
+    order: 3;
+    align-self: center;
+}
+
+.date-weather-box{
+    display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: baseline;
+  align-content:space-between;
+  width: 100%;
+  min-width: 400px;
+  height: auto;
+}
+
 

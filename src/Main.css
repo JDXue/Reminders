@@ -1,0 +1,19 @@
+@keyframes hop {
+    0% {opacity: 0.0;
+      transform:translateY(-30PX);}
+      100% {opacity:1.0;
+        transition-timing-function: ease-in;
+        transform:translateY(0PX);}
+      }
+
+.main-box{
+    animation-name: hop;
+    animation-duration: 1.2s;
+    text-align: center;
+    padding-top: 100px;
+    padding: 200px;
+}
+
+.main-box-content{
+    padding: 30px;
+}

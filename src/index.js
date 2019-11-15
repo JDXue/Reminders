@@ -9,10 +9,11 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 console.log(reducer)
-const store = createStore(reducer)
+const store = createStore(reducer, /* preloadedState, */
+     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 const storeContent = store.getState()
 console.log(storeContent)
-console.log(store.getState().myReminders)
+console.log(store.getState().currentUser)
 
 
 ReactDOM.render(

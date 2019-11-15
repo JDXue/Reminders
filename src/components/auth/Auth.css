@@ -1,16 +1,41 @@
+@keyframes hop {
+    0% {opacity: 0.0;
+      transform:translateY(-30PX);}
+      100% {opacity:1.0;
+        transition-timing-function: ease-in;
+        transform:translateY(0PX);}
+      }
+
 .sign-in-box{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     width: 300px;
     height: auto;
     grid-gap: 30px;
-    border: solid 5px #efefef;
+    border: solid 3px #efefef;
+    border-radius: 10px;
     padding: 20px;
+    animation-name: hop;
+    animation-duration: 0.7s;
 
 }
 
 .input-box{
     min-width: 250px;
     padding: 10px;
+    border-radius: 10px;
+    border: solid 3px #efefef;
+}
+
+.login-attempt-message{
+    padding: 20px;
+    text-align: center;
+}
+
+.password-tip{
+    font-size: 13px;
+    color: #9f9f9f;
+    animation-name: hop;
+    animation-duration: 2s;
 }
 

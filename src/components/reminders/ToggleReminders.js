@@ -7,7 +7,8 @@ import { showingRemindersToday } from '../../redux'
 
 
 function ToggleReminders(){
-    const showState = useSelector(storeState => storeState.onlyShowRemindersToday)
+    const currentUserState = useSelector(storeState => storeState.currentUser)
+    const showState = useSelector(storeState => storeState.users[`${currentUserState}`].settings.onlyShowRemindersToday)
     const dispatch = useDispatch()
     console.log({showState})
 
@@ -18,9 +19,10 @@ function ToggleReminders(){
         onClick: () => {
             console.log(showState)
             if(showState == true){
-                dispatch(showingRemindersToday(false))
+                dispatch(showingRemindersToday(false, currentUserState))
             }
-            else dispatch(showingRemindersToday(true))
+            else dispatch(showingRemindersToday(true, currentUserState))
+            console.log(showState)
         }
     }
 

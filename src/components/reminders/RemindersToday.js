@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeFromReminders } from '../../redux'
 
 function RemindersToday(){
-    const remindersState  = useSelector(storeState => storeState.myReminders)
+    const currentUserState = useSelector(storeState => storeState.currentUser)
+    const remindersState  = useSelector(storeState => storeState.users[`${currentUserState}`]['myReminders'])
     const dispatch = useDispatch()
     console.log({remindersState})
 
@@ -19,13 +20,20 @@ function RemindersToday(){
     let titleStr = newDate.toLocaleDateString('en-GB',{dateStyle: 'medium'}) // get string for comparison
 
     // console.log(todayStr)
-    if(remindersState.length != 0){
         return(
             <>
             <h5>{titleStr}</h5>
                 {
+                    (remindersState.filter(reminder => reminder[1].toLocaleDateString('en-GB') == todayStr).length < 1)
+                    ?
+                    <div>No reminders so far</div>
+                    :
+                    <></>
+
+                }
+                {
                     remindersState
-                        .filter(reminder => reminder[1] != null)
+                        .filter(reminder => reminder[1])
                         .filter(reminder => reminder[1].toLocaleDateString('en-GB') == todayStr) //check if reminders are for today
                         .map((reminder, index) =>
                             <div className="reminder-box" key={index + reminder}>
@@ -37,7 +45,7 @@ function RemindersToday(){
                                     onClick= {()=>{
                                         console.log(index)
                                         console.log('removed a reminder')
-                                        dispatch(removeFromReminders(index))
+                                        dispatch(removeFromReminders(index, currentUserState))
                                     }}
                                 >X</Button>
                             </div>
@@ -47,7 +55,7 @@ function RemindersToday(){
 
             </>
         )
-    } else return null
+
 
 
 }

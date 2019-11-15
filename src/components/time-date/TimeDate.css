@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+
+* {
+    font-family: 'Dosis', sans-serif;
+}
+
+.time{
+    font-size: 800%;
+}
+
+.time-date{
+    padding: 0px;
+    text-align: center;
+    font-family: 'Dosis', 'sans-serif';
+}
+
+.time-digits{
+    min-width: 100px;
+    font-size: 70%;
+}
+
