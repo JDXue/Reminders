@@ -18,6 +18,8 @@ function GeoLocate(){
     // console.log(position)
 
 
+
+
     return(
         <>
             <p>Current location set: {settingsState.city}</p>
@@ -28,7 +30,12 @@ function GeoLocate(){
                         if(position.error){
                             alert(position.error.message)
                         }else{
-                            dispatch(setGeoLocation({lat: position.latitiude, lon: position.lon},currentUserState))
+                            let coordinates = {
+                                lat: position.latitude,
+                                lon: position.longitude
+                            }
+
+                            dispatch(setGeoLocation(coordinates,currentUserState))
                             // settingsState.city = ''
                             // settingsState.coord.lat = position.latitude
                             // settingsState.coord.lon = position.longitude

@@ -58,9 +58,20 @@ html{
   padding: 10px;
   font-family: 'Dosis', 'sans-serif';
 
-  /* background-image: url(https://media.giphy.com/media/4jQa2aDKam83S/source.gif);
+  /* background-image: url(https://media.giphy.com/media/kX3kSfJR1ODYY/source.gif);
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: 100%;
+
+  position: absolute;
+  z-index: -1;
+
+  /* Full height */
+  /* height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  */
+
 }
 
 .dark{
@@ -69,6 +80,23 @@ html{
   padding: 10px;
   font-family: 'Dosis', 'sans-serif';
   display: flex;
+  background-image: url(https://media.giphy.com/media/xTiQypT5W2qoSM0mqs/source.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  /* Add the blur effect */
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+  position: absolute;
+  z-index: -1;
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
 }
 
